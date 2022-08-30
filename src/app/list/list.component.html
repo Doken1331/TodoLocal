@@ -1,0 +1,68 @@
+<div class="wrapper">
+    <header class="header">
+        <h1 class="header__title">
+            TODO list
+        </h1>
+    </header>
+    <main>
+        <div class="form">
+            <input type="text" id="task" class="form__input" [(ngModel)]="inputText">
+            <button class="form__button" type="submit" (click)="addTask()">Добавить новую задачу</button>
+        </div>
+        <div class="table">
+            <div class="table__header">
+                <div class="table__header-cell">
+                    #
+                </div>
+                <div class="table__header-cell">
+                    Task name
+                </div>
+                <div class="table__header-cell">
+                    End date
+                </div>
+                <div class="table__header-cell">
+                    Status
+                </div>
+                <div class="table__header-cell">
+                    Edit
+                </div>
+                <div class="table__header-cell table__header-cell_remove">
+                    Remove
+                </div>
+            </div>
+            <div class="table__content">
+                <div class="table__content-row">
+                    <div class="table__content-row-cell" *ngFor="let item of result; let i = index">
+                        <div class="table__content-row-cell-item">
+                            {{ i + 1 }}
+                        </div>
+                        <div class="table__content-row-cell-item">
+                            {{ item.nameTask }}
+                        </div>
+                        <div class="table__content-row-cell-item">
+                            {{ item.endDate | date }}
+                        </div>
+                        <div class="table__content-row-cell-item">
+                            {{ item.status }}
+                        </div>
+                        <div class="table__content-row-cell-item table__content-row-cell-item_edit">
+                            <div class="table__content-row-cell-item-default" (click)="showStatus()">
+                                EditStatusBTN
+                                <div class="table__content-row-cell-item-select">
+                                    <ul class="table__content-row-cell-item-list">
+                                        <li class="table__content-row-cell-item-list-item">In the process</li>
+                                        <li class="table__content-row-cell-item-list-item">Completed</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="table__content-row-cell-item table__content-row-cell-remove" (click)="removeTask(item)">
+                            Remove
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

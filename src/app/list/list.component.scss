@@ -1,0 +1,77 @@
+.wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.form {
+    margin-bottom: 20px;
+}
+
+.table {
+    &__header {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        border-bottom: 1px solid gray;
+        padding: 10px 0;
+        &-cell {
+            justify-self: center;
+        }
+    }
+    &__content {
+        &-row {
+            &-cell {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                padding: 15px 0;
+                &-item {
+                    position: relative;
+                    justify-self: center;
+                    &-default {
+                        cursor: pointer;
+                        background: gray;
+                        padding: 10px;
+                        color: #fff;
+                        border-radius: 15px;
+                    }
+                    &_edit {
+                        padding: 0 0 2px;
+                        &:hover .table__content-row-cell-item-select {
+                            display: block;
+                        }
+                    }
+                    &-select {
+                        display: none;
+                        width: 100%;
+                        position: absolute;
+                        top: 40px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: gray;
+                        padding: 10px 10px;
+                        transition: all .2s ease;
+                        color: #fff;
+                        border-radius: 15px;
+                        z-index: 10;
+                    }
+                    &-list {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        text-align: center;
+                        &-item {
+                            cursor: pointer;
+                            padding: 5px 0;
+                        }
+                    }
+                }
+                &-remove {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.showStatus .table__content-row-cell-item-select {
+    display: block;
+}

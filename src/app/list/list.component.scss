@@ -22,6 +22,7 @@
             &-cell {
                 display: grid;
                 grid-template-columns: repeat(6, 1fr);
+                align-items: center;
                 padding: 15px 0;
                 &-item {
                     position: relative;
